@@ -52,11 +52,53 @@ th{background:var(--brand);color:#fff;font-weight:700}
 td.blank{height:34px}
 @media(max-width:900px){.sheet{width:100%;min-height:auto}.grid-2{grid-template-columns:1fr}}
 @page{size:A4;margin:0}
-@media print{
-  html,body{margin:0 !important;padding:0 !important;background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .toolbar{display:none !important}
-  .page-wrap{padding:0 !important}
-  .sheet{width:190mm !important;min-height:277mm !important;margin:0 auto !important;box-shadow:none !important;border:1.5px solid var(--line) !important;border-radius:14px !important}
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 👇 HIDE PRINT BUTTON + ANY UI */
+  .toolbar,
+  .btn {
+    display: none !important;
+  }
+
+  /* 👇 REMOVE OUTER SPACING */
+  .page-wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 👇 MAIN DOCUMENT */
+  .sheet {
+    width: 190mm !important;
+    min-height: 277mm !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+
+    /* 👇 THIS FIXES YOUR GREEN BORDER ISSUE */
+    border: none !important;
+
+    /* 👇 CLEAN PRINT LOOK */
+    border-radius: 0 !important;
+  }
+
+  /* 👇 PREVENT RANDOM SHIFTS */
+  * {
+    box-sizing: border-box !important;
+  }
+
+}
 }
 </style></head><body>
 <div class="page-wrap"><div class="toolbar"><button class="btn" onclick="window.print()">Save as PDF / Print</button></div>
