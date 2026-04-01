@@ -52,11 +52,15 @@ th{background:var(--brand);color:#fff;font-weight:700}
 td.blank{height:34px}
 @media(max-width:900px){.sheet{width:100%;min-height:auto}.grid-2{grid-template-columns:1fr}}
 @page{size:A4;margin:0}
-@media print{
-  html,body{margin:0 !important;padding:0 !important;background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  .toolbar{display:none !important}
-  .page-wrap{padding:0 !important}
-  .sheet{width:190mm !important;min-height:277mm !important;margin:0 auto !important;box-shadow:none !important;border:1.5px solid var(--line) !important;border-radius:14px !important}
+@media print {
+  .sheet {
+    width: 190mm !important;
+    min-height: 277mm !important;
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    border: none !important;   /* 👈 THIS FIXES IT */
+    border-radius: 0 !important;
+  }
 }
 </style></head><body>
 <div class="page-wrap"><div class="toolbar"><button class="btn" onclick="window.print()">Save as PDF / Print</button></div>
