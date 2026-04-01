@@ -52,14 +52,53 @@ th{background:var(--brand);color:#fff;font-weight:700}
 td.blank{height:34px}
 @media(max-width:900px){.sheet{width:100%;min-height:auto}.grid-2{grid-template-columns:1fr}}
 @page{size:A4;margin:0}
+@page {
+  size: A4;
+  margin: 0;
+}
+
 @media print {
-   html,body{margin:0 !important;padding:0 !important;background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 👇 HIDE PRINT BUTTON + ANY UI */
+  .toolbar,
+  .btn {
+    display: none !important;
+  }
+
+  /* 👇 REMOVE OUTER SPACING */
+  .page-wrap {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 👇 MAIN DOCUMENT */
   .sheet {
     width: 190mm !important;
     min-height: 277mm !important;
     margin: 0 auto !important;
     box-shadow: none !important;
-    border: none !important;   /*
+
+    /* 👇 THIS FIXES YOUR GREEN BORDER ISSUE */
+    border: none !important;
+
+    /* 👇 CLEAN PRINT LOOK */
+    border-radius: 0 !important;
+  }
+
+  /* 👇 PREVENT RANDOM SHIFTS */
+  * {
+    box-sizing: border-box !important;
+  }
+
+}
     border-radius: 0 !important;
   }
 }
